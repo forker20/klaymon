@@ -28,8 +28,8 @@ module.exports = async (options) => {
 			third: `                                                       :blue_car: - <@${options.opponent.id}>`,
 			fourth: ':checkered_flag::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::checkered_flag:',
 		};
-		const blue = String(Math.random());
-		const red = String(Math.random());
+		const blue = String(Math.random()) + `_${options.message.author.id}`;
+		const red = String(Math.random()) + `_${options.opponent.id}`;
 
 		positions.second = positions.second.split('');
 		positions.third = positions.third.split('');
@@ -74,8 +74,8 @@ module.exports = async (options) => {
 				game.stop();
 				componentsArray[0].components[0].disabled = true;
 				componentsArray[0].components[1].disabled = true;
-
-
+                                if(componentsArray[0].components[1].custom_id.split('_')[1] === who.id) componentsArray[0].components[0].style = 'SECONDRY';
+                                if(componentsArray[0].components[0].custom_id.split('_')[1] === who.id) componentsArray[0].components[1].style = 'SECONDRY';    
                 if(!options.winMessage) {
                     options.winMessage = `Awww, ${who.username} won!`
                 }
@@ -89,7 +89,7 @@ module.exports = async (options) => {
 					'<@{{whoWin}}>': `<@${who.id}>`,
 					'{{whoWin}}' : `${who.username}`
 				}
-				options.message.channel.send(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}`);
+				options.message.reply(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}`);
 			}
 
 			msg.edit({
