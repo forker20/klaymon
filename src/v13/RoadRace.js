@@ -23,13 +23,13 @@ module.exports = async (options) => {
 
 
 		const positions = {
-			first: ':checkered_flag::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::checkered_flag:',
+			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                                      :red_car: - <@${options.message.author.id}>`,
 			third: `                                                       :blue_car: - <@${options.opponent.id}>`,
-			fourth: ':checkered_flag::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::eight_pointed_black_star::checkered_flag:',
+			fourth: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
-		const blue = String(Math.random()) + `_${options.message.author.id}`;
-		const red = String(Math.random()) + `_${options.opponent.id}`;
+		const blue = String(Math.random()) + `_${options.opponent.id}`;
+		const red = String(Math.random()) + `_${options.message.author.id}`;
 
 		positions.second = positions.second.split('');
 		positions.third = positions.third.split('');
