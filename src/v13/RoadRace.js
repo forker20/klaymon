@@ -70,7 +70,7 @@ module.exports = async (options) => {
 		});
 
 		function update(win, who) {
-			if(win === true) {
+			if(win === true && who) {
 				game.stop();
 				componentsArray[0].components[0].disabled = true;
 				componentsArray[0].components[1].disabled = true;
