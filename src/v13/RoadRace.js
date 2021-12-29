@@ -74,8 +74,8 @@ module.exports = async (options) => {
 				game.stop();
 				componentsArray[0].components[0].disabled = true;
 				componentsArray[0].components[1].disabled = true;
-                                if(componentsArray[0].components[1].custom_id.split('_')[1] === who.id) componentsArray[0].components[0].style = 'SECONDRY';
-                                if(componentsArray[0].components[0].custom_id.split('_')[1] === who.id) componentsArray[0].components[1].style = 'SECONDRY';    
+                                if(componentsArray[0].components[1].custom_id.split('_')[1] === who.id) componentsArray[0].components[0].style = 'SECONDARY';
+                                if(componentsArray[0].components[0].custom_id.split('_')[1] === who.id) componentsArray[0].components[1].style = 'SECONDARY';    
                 if(!options.winMessage) {
                     options.winMessage = `Awww, ${who.username} won!`
                 }
