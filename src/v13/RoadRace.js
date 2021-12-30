@@ -24,8 +24,8 @@ module.exports = async (options) => {
 
 		const positions = {
 			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
-			second: `                                                      :red_car: - <@${options.message.author.id}>`,
-			third: `                                                       :blue_car: - <@${options.opponent.id}>`,
+			second: `               :red_car: - <@${options.message.author.id}>`,
+			third: `                :blue_car: - <@${options.opponent.id}>`,
 			fourth: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
 		const blue = String(Math.random()) + `_${options.opponent.id}`;
