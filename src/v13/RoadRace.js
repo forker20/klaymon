@@ -23,10 +23,10 @@ module.exports = async (options) => {
 
 
 		const positions = {
-			first: 🏁▫️▪️▫️▪️▫️▪️▫️🏁',
+			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
 			third: `                               🚙 - <@${options.opponent.id}>`,
-			fourth: `🏁▫️▪️▫️▪️▫️▪️▫️🏁',
+			fourth: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
 
 		const blue = String(Math.random()) + `_${options.opponent.id}`;
