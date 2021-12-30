@@ -20,8 +20,29 @@ module.exports = async (options) => {
         throw new TypeError('Klaymon Err: Invalid Discord opponent was provided.');
     }
 
-
-
+        let challengeEmbed = new MessageEmbed()
+        .setTitle(options.challangeTitle)
+        .setDescription(options.challangeDes)
+        .setColor(options.challangeColor);
+        let challangeRow = [
+			{
+				type: 1,
+				components: [
+					{
+						type: 2,
+						style: options.buttons.accept_style,
+						custom_id: 'accept_${options.message.author.id}' + String(Math.random()),
+						label: options.buttons.accept,
+					},
+					{
+						type: 2,
+						style: options.buttons.deny_style,
+						custom_id: 'deny_${options.message.author.id}' + String(Math.random()),
+						label: options.buttons.deny,
+					},
+				],
+			},
+		];
 		const positions = {
 			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
