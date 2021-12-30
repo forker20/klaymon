@@ -25,7 +25,7 @@ module.exports = async (options) => {
 		const positions = {
 			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
-			third: `                               🚙 - <@${options.opponent.id}>`,
+			third: `                                 🚙 - <@${options.opponent.id}>`,
 			fourth: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
 
