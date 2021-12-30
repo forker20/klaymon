@@ -36,7 +36,7 @@ module.exports = async (options) => {
 
 		const speed = 2;
 
-		const data = { first: 30, second: 30 };
+		const data = { first: 3, second: 3 };
 
 		const componentsArray = [
 			{
