@@ -58,7 +58,7 @@ module.exports = async (options) => {
 			},
 		];
 
-		const msg = await options.message.channel.send({
+		const msg = await options.message.reply({
 			content: positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth,
 			components: componentsArray,
 		});
@@ -73,9 +73,7 @@ module.exports = async (options) => {
 			if(win === true && who) {
 				game.stop();
 				componentsArray[0].components[0].disabled = true;
-				componentsArray[0].components[1].disabled = true;
-                                if(componentsArray[0].components[1].custom_id.split('_')[1] === who.id) componentsArray[0].components[0].style = 'SECONDARY';
-                                if(componentsArray[0].components[0].custom_id.split('_')[1] === who.id) componentsArray[0].components[1].style = 'SECONDARY';    
+				componentsArray[0].components[1].disabled = true;   
                 if(!options.winMessage) {
                     options.winMessage = `Awww, ${who.username} won!`
                 }
