@@ -52,22 +52,40 @@ module.exports = async (options) => {
            await int.deferUpdate();
            if(int.customId === `deny_${options.message.author.id}`) {
            challange.stop();
-           challangeRow[0].components[0].disabled = true;
-           challangeRow[0].components[1].disabled = true;
-           
+           let disabled = [
+			{
+				type: 1,
+				components: [
+					{
+						type: 2,
+						style: options.buttons.accept_style,
+						custom_id: `accept_${options.message.author.id}`,
+						label: options.buttons.accept,
+                                                disabled: true,
+					},
+					{
+						type: 2,
+						style: options.buttons.deny_style,
+						custom_id: `deny_${options.message.author.id}`,
+						label: options.buttons.deny,
+                                                disabled: true,
+					},
+				],
+			},
+		];
            let didntAccept = new MessageEmbed()
            .setTitle(options.noTitle)
            .setDescription(options.noDes)
            .setColor(options.color);
-           challMsg.edit({embeds: [didntAccept]});
+           challMsg.edit({embeds: [didntAccept], components: [disabled]});
    } else {
               challMsg.delete();
               challange.stop();
 		const positions = {
-			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
+			first: options.road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
 			third: `                                 🚙 - <@${options.opponent.id}>`,
-			fourth: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
+			fourth: options.road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
 
 		const blue = String(Math.random()) + `_${options.opponent.id}`;
