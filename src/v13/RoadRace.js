@@ -44,12 +44,12 @@ module.exports = async (options) => {
 			},
 		];
          let challMsg = options.message.reply({embeds: [challangeEmbed], components: challengeRow});
-         let challangeFilter = (button => { return int.user.id === options.opponent.id; });
+         let challangeFilter = (int => { return int.user.id === options.opponent.id; });
          const challange = options.message.channel.createMessageComponentCollector({
 			challangeFilter,
 			componentType: 'BUTTON',
 		});
-            challange.on('collect' int => {
+            challange.on('collect', int => {
            await int.deferUpdate();
            if(int.customId === `deny_${options.message.author.id}`) {
            challenge.stop();
