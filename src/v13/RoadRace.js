@@ -23,7 +23,7 @@ module.exports = async (options) => {
         let challengeEmbed = new MessageEmbed()
         .setTitle(options.challangeTitle)
         .setDescription(options.challangeDes)
-        .setColor(options.challangeColor);
+        .setColor(options.color);
         let challangeRow = [
 			{
 				type: 1,
@@ -31,18 +31,39 @@ module.exports = async (options) => {
 					{
 						type: 2,
 						style: options.buttons.accept_style,
-						custom_id: 'accept_${options.message.author.id}' + String(Math.random()),
+						custom_id: `accept_${options.message.author.id}`,
 						label: options.buttons.accept,
 					},
 					{
 						type: 2,
 						style: options.buttons.deny_style,
-						custom_id: 'deny_${options.message.author.id}' + String(Math.random()),
+						custom_id: `deny_${options.message.author.id}`,
 						label: options.buttons.deny,
 					},
 				],
 			},
 		];
+         let challMsg = options.message.reply({embeds: [challangeEmbed], components: challengeRow});
+         let challangeFilter =;
+         const challange = options.message.channel.createMessageComponentCollector({
+			challangeFilter,
+			componentType: 'BUTTON',
+		});
+            challange.on('collect' in => {
+           await in.deferUpdate();
+           if(in.customId === `deny_${options.message.author.id}`) {
+           challenge.stop();
+           challengeRow[0].components[0].disabled = true;
+           challengeRow[0].components[1].disabled = true;
+           
+           let didntAccept = new MessageEmbed()
+           .setTitle(options.noTitle)
+           .setDescription(options.noDes)
+           .setColor(options.color);
+           challMsg.edit({embeds: [didntAccept]});
+   } else {
+              challMsg.delete();
+              challenge.stop();
 		const positions = {
 			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
@@ -134,5 +155,6 @@ module.exports = async (options) => {
 		});
 
 	
-    
+    }
+})
 };
