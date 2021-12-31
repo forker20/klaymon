@@ -49,7 +49,7 @@ module.exports = async (options) => {
 			challangeFilter,
 			componentType: 'BUTTON',
 		});
-            challange.on('collect', int => {
+            challange.on('collect', async int => {
            await int.deferUpdate();
            if(int.customId === `deny_${options.message.author.id}`) {
            challenge.stop();
