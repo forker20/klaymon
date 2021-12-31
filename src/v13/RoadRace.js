@@ -1,5 +1,4 @@
-
-A Discord = require('discord.js');
+const Discord = require('discord.js');
 const functions = require('../../functions/function');
 const discord = require("discord.js")
 const { MessageEmbed } = require('discord.js')
