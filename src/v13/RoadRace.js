@@ -83,8 +83,8 @@ module.exports = async (options) => {
               challange.stop();
 		const positions = {
 			first: options.road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
-			second: `                                🚗 - <@${options.message.author.id}>`,
-			third: `                                 🚙 - <@${options.opponent.id}>`,
+			second: options.pos?.redcar || `                                🚗 - <@${options.message.author.id}>`,
+			third: options.pos?.bluecar || `                                 🚙 - <@${options.opponent.id}>`,
 			fourth: options.road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 		};
 
@@ -147,7 +147,7 @@ module.exports = async (options) => {
 					'<@{{whoWin}}>': `<@${who.id}>`,
 					'{{whoWin}}' : `${who.username}`
 				}
-				options.msg.edit(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}\n` + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth);
+				msg.edit(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}\n` + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth);
 			}
 
 			msg.edit({
