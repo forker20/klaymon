@@ -63,7 +63,7 @@ module.exports = async (options) => {
            challMsg.edit({embeds: [didntAccept]});
    } else {
               challMsg.delete();
-              challenge.stop();
+              challange.stop();
 		const positions = {
 			first: '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: `                                🚗 - <@${options.message.author.id}>`,
