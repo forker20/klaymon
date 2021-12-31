@@ -151,7 +151,7 @@ module.exports = async (options) => {
 			}
 
 			msg.edit({
-				content: positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth,
+				content: 'hi\n' + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth,
 				components: componentsArray,
 			});
 		}
