@@ -147,11 +147,11 @@ module.exports = async (options) => {
 					'<@{{whoWin}}>': `<@${who.id}>`,
 					'{{whoWin}}' : `${who.username}`
 				}
-				msg.edit(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}\n` + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth);
+				options.message.reply(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}`);
 			}
 
 			msg.edit({
-				content: 'hi\n' + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth,
+				content: positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth,
 				components: componentsArray,
 			});
 		}
