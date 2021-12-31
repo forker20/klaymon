@@ -43,7 +43,7 @@ module.exports = async (options) => {
 				],
 			},
 		];
-         let challMsg = await options.message.reply({embeds: [challengeEmbed], components: challengeRow});
+         let challMsg = await options.message.reply({embeds: [challengeEmbed], components: challangeRow});
          let challangeFilter = (int => { return int.user.id === options.opponent.id; });
          const challange = options.message.channel.createMessageComponentCollector({
 			challangeFilter,
@@ -53,8 +53,8 @@ module.exports = async (options) => {
            await int.deferUpdate();
            if(int.customId === `deny_${options.message.author.id}`) {
            challenge.stop();
-           challengeRow[0].components[0].disabled = true;
-           challengeRow[0].components[1].disabled = true;
+           challangeRow[0].components[0].disabled = true;
+           challangeRow[0].components[1].disabled = true;
            
            let didntAccept = new MessageEmbed()
            .setTitle(options.noTitle)
