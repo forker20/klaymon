@@ -43,7 +43,7 @@ module.exports = async (options) => {
 				],
 			},
 		];
-         let challMsg = options.message.reply({embeds: [challangeEmbed], components: challengeRow});
+         let challMsg = await options.message.reply({embeds: [challengeEmbed], components: challengeRow});
          let challangeFilter = (int => { return int.user.id === options.opponent.id; });
          const challange = options.message.channel.createMessageComponentCollector({
 			challangeFilter,
