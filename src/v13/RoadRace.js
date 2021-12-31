@@ -129,7 +129,7 @@ module.exports = async (options) => {
 					'<@{{whoWin}}>': `<@${who.id}>`,
 					'{{whoWin}}' : `${who.username}`
 				}
-				options.message.reply(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}`);
+				options.msg.edit(`${options.winMessage.replace( /<@{{whoWin}}>|{{whoWin}}/g, match => obj[match])}\n` + positions.first + '\n' + positions.second.join('') + '\n' + positions.third.join('') + '\n' + positions.fourth);
 			}
 
 			msg.edit({
