@@ -52,7 +52,7 @@ module.exports = async (options) => {
             challange.on('collect', async int => {
            await int.deferUpdate();
            if(int.customId === `deny_${options.message.author.id}`) {
-           challenge.stop();
+           challange.stop();
            challangeRow[0].components[0].disabled = true;
            challangeRow[0].components[1].disabled = true;
            
