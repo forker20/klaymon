@@ -77,7 +77,7 @@ module.exports = async (options) => {
            .setTitle(options.noTitle)
            .setDescription(options.noDes)
            .setColor(options.color);
-           challMsg.edit({embeds: [didntAccept], components: [disabled]});
+           challMsg.edit({embeds: [didntAccept], components: disabled});
    } else {
               challMsg.delete();
               challange.stop();
