@@ -82,10 +82,10 @@ module.exports = async (options) => {
               challMsg.delete();
               challange.stop();
 		const positions = {
-			first: options.1st_road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
+			first: options.first_road || '🏁▫️▪️▫️▪️▫️▪️▫️🏁',
 			second: options.pos?.red_car || `                                🚗 - <@${options.message.author.id}>`,
 			third: options.pos?.blue_car || `                                🚙 - <@${options.opponent.id}>`,
-			fourth: options.2nd_road || '🏁▪️▫️▪️▫️▪️▫️▪️🏁',
+			fourth: options.second_road || '🏁▪️▫️▪️▫️▪️▫️▪️🏁',
 		};
 
 		const blue = String(Math.random()) + `_${options.opponent.id}`;
